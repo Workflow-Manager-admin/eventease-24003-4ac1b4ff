@@ -81,15 +81,18 @@ def seed_events():
         )
         _events.extend([e1, e2])
 
+
 # PUBLIC_INTERFACE
 def get_all_events() -> List[Event]:
     """Returns all events."""
     return list(_events)
 
+
 # PUBLIC_INTERFACE
 def get_event_by_id(event_id: int) -> Optional[Event]:
     """Returns a single event by ID."""
     return next((e for e in _events if e.id == event_id), None)
+
 
 # PUBLIC_INTERFACE
 def register_user(event_id: int, name: str, email: str) -> Registration:
@@ -98,10 +101,12 @@ def register_user(event_id: int, name: str, email: str) -> Registration:
     _registrations.append(reg)
     return reg
 
+
 # PUBLIC_INTERFACE
 def get_registrations_for_event(event_id: int) -> List[Registration]:
     """Gets all registrations for a particular event."""
     return [r for r in _registrations if r.event_id == event_id]
+
 
 # PUBLIC_INTERFACE
 def remove_registration(registration_id: int) -> bool:
